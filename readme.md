@@ -1,5 +1,4 @@
-### Node-Voltage Calculator
+### LiteSpiCE
 
-Designed to help EE students with nodal circuit analysis.
+LiteSpiCE is a lightweight GUI SPICE program in development for the TI84 Plus CE.
 
-By Kevin Yonan.
