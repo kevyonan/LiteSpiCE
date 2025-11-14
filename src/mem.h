@@ -84,9 +84,8 @@ TI_MEM_EXPORT NO_NULLS struct TIBiStack bistack_make(uint8_t *const buf, size_t 
 
 TI_MEM_EXPORT NO_NULLS void bistack_reset(struct TIBiStack *s) {
 	s->front = 0;
-	s->back = s->len;
+	s->back  = s->len;
 }
-
 TI_MEM_EXPORT NO_NULLS void bistack_reset_front(struct TIBiStack *const s) {
 	s->front = 0;
 }
@@ -132,7 +131,7 @@ TI_MEM_EXPORT NO_NULLS void *bistack_alloc_back_vec(struct TIBiStack *const s, s
 	return memset(s->mem + s->back, 0, bytes);
 }
 
-TI_MEM_EXPORT NO_NULLS int bistack_get_margins(struct TIBiStack const *s) {
+TI_MEM_EXPORT NO_NULLS int bistack_get_margins(struct TIBiStack const *const s) {
 	return s->back - s->front;
 }
 
@@ -143,7 +142,7 @@ struct TIBuffer {
 };
 
 TI_MEM_EXPORT NO_NULLS struct TIBuffer buffer_make(size_t const start_cap, size_t const elem_size, void *alloc_func(void *data, size_t bytes), void *allocator_data) {
-	return (struct TIBuffer){
+	return ( struct TIBuffer ){
 		.data = alloc_func(allocator_data, start_cap * elem_size),
 		.cap = start_cap,
 		.len = 0,
